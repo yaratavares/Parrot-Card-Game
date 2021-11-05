@@ -1,0 +1,38 @@
+
+/* general */
+body {
+    background-color: #EEF9BF;
+}
+
+.container {
+    margin: 0% 11%;
+}
+
+/* header */
+header .tittle{
+    margin: 2.5rem 0 0.8125rem 0;
+    text-align: center;
+
+    font: 700 3.5rem 'Roboto', sans-serif;
+    color: #75B79E;
+}
+
+/* card */
+#card {    
+    width: 7.3125rem;
+    height: 9.125rem;
+    margin: 2.125rem;
+    margin-left: 0;
+    border-radius: 5px;
+
+    border: 1px solid #99CEA8;
+    background-color: #A7E9AF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#parrot {
+    object-fit: cover;
+}
