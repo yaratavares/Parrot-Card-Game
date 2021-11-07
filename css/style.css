@@ -6,10 +6,14 @@ body {
 
 .container {
     margin: 0% 11%;
-
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+img {
+    object-fit: cover;
 }
 
 /* header */
@@ -31,11 +35,6 @@ header .tittle{
     position: relative;
 }
 
-
-#parrot {
-    object-fit: cover;
-}
-
 .face {
     width: 100%;
     height: 100%;
@@ -52,18 +51,45 @@ header .tittle{
     
     transition: all .5s;
     transform-style: preserve-3d;
-  }
+}
 
- 
 .back-face {
     transform: rotateY(180deg);
 }
+
+.back-face img {
+    height: 2rem;
+}
     
-
-  .card.click .back-face {
+.card.click .back-face {
     transform: rotateY(0deg);
-  }
+}
 
-  .card.click .front-face {
+.card.click .front-face {
     transform: rotateY(-180deg);
-  }
+}
+
+body {
+    position: relative;
+}
+
+.timer {
+
+    width: 3rem;
+    height: 2rem;
+    border-radius: 5px;
+    font: 700 1rem 'Roboto', sans-serif;
+    
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    position: absolute;
+    top: 0;
+    right:2rem;
+}
+
