@@ -7,11 +7,19 @@ let allCards = [
     "tripletsparrot",
     "unicornparrot",
 ]
+
 let card1;
 let card2;
+let numberOfCards;
+let gameCards;
 let contClick = 0;
 let contGame = 0;
 let testGame = 0;
+
+//lógica para timer (bônus)
+let second = 0;
+let minute = 0;
+let IdentificadorIntervalo;
 
 // função de validação do numero digitado
 function validation (){
@@ -27,25 +35,27 @@ function validation (){
 // função de mostrar as cartas
 function showCards (numberCards){
     
-    const listCards = document.querySelector(".container");
+    let listCards = document.querySelector(".container");
     for (i=0; i < numberCards; i++) {
         
         listCards.innerHTML += 
-        `<div class="card" onclick="clickCard(this)">
-        <div class= "front-face face">
+        `<div class="card" onclick="clickCard(this)" data-identifier="card">
+        <div class= "front-face face" data-identifier="front-face">
         <img class="parrot" src= "assets/parrot.png"/>
         </div>
-        <div class= "back-face face">
+        <div class= "back-face face" data-identifier="back-face">
         <img src="assets/${gameCards[i]}.gif"/>
         </div>
         </div>`
     }
 }
 
+// função que misturamos as cartas
 function comparador() { 
     return Math.random() - 0.5; 
 }
 
+// pegando o número de cartas necessárias para o jogo
 function gameSort() {
     allCards.length = numberOfCards/2;
     for (i=0; i < numberOfCards/2; i++){
@@ -87,33 +97,12 @@ function removeProgram (){
     (card2.parentElement).classList.remove('click');
 }
 
+//responsável pelo alert ao final do jogo
 function endOfGame (contClick) {
-    alert(`Você ganhou em ${contClick} rodadas`);
+    alert(`Você ganhou em ${contClick} rodadas! Em ${minute} minutos e ${second} segundos`);
 }
 
-
-// lógica implementada
-let select = [];
-const numberOfCards = validation ();
-
-// sorteando todas as cardas
-allCards.sort(comparador);
-
-// pegando somente as cartas que queremos
-const gameCards = gameSort();
-
-// sorteando a ordem das cartas novamente
-gameCards.sort(comparador);
-
-// mostrando as cartas
-showCards (numberOfCards);
-
-
-//lógica para timer (bônus)
-let second = 0;
-let minute = 0;
-let IdentificadorIntervalo;
-
+// função do contador (bônus)
 function timer() {
     IdentificadorIntervalo = setInterval(counter, 1000);
 }
@@ -136,12 +125,26 @@ function counter() {
         counter_s.innerHTML = second;
         counter_m.innerHTML = minute;
     }
-
-    // if (minute == 1) {
-    //     clearInterval(IdentificadorIntervalo);
-    // }
 }
 
+
+// lógica implementada
+numberOfCards = validation ();
+console.log(numberOfCards);
+    
+// sorteando todas as cardas
+allCards.sort(comparador);
+    
+// pegando somente as cartas que queremos
+gameCards = gameSort();
+
+// sorteando a ordem das cartas novamente
+gameCards.sort(comparador);
+
+// mostrando as cartas
+showCards (numberOfCards);
+
+// inicia timer (bônus)
 timer ();
 
 

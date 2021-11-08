@@ -89,7 +89,12 @@ body {
 
 
     position: absolute;
-    top: 0;
+    top: 4.5rem;
     right:2rem;
 }
 
+@media (max-width: 335px) {
+    h1.tittle{
+        font-size: 2.25rem;
+    }
+}
