@@ -25,6 +25,8 @@ function gameRepeat () {
     // validação do número escolhido
     numberOfCards = validation ();
 
+    contClick = 0;
+
     if (numberOfCards !== null) {
         // sorteando todas as cards
         allCards.sort(comparador);
@@ -36,6 +38,7 @@ function gameRepeat () {
         gameCards.sort(comparador);
         
         // mostrando as cartas
+        
         showCards (numberOfCards)
         
         // ligando o timer (bônus)
@@ -65,7 +68,7 @@ function comparador() {
 // pegando o número de cartas necessárias para o jogo
 function gameSort() {
     let cardsAleatory = allCards.slice(0);
-    console.log(cardsAleatory);
+
     cardsAleatory.length = numberOfCards/2;
     for (i=0; i < numberOfCards/2; i++){
         cardsAleatory.push(cardsAleatory[i]); 
@@ -169,8 +172,6 @@ function endOfGame (contClick) {
         
         contGame = 0;
         testGame = 0;
-        contClick= 0;
-        gameCards = [];
         gameRepeat()
     } else {
         return null;
