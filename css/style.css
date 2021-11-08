@@ -93,6 +93,24 @@ body {
     right:2rem;
 }
 
+/* classe necessária para impedir vários clicks */
+.card.noClick {
+    pointer-events: none;
+}
+
+.card.acertou .back-face {
+    transform: rotateY(0deg);
+}
+
+.card.acertou .front-face {
+    transform: rotateY(-180deg);
+}
+
+.card.acertou {
+    pointer-events: none;
+}
+
+/* adaptação para mobile */
 @media (max-width: 335px) {
     h1.tittle{
         font-size: 2.25rem;
